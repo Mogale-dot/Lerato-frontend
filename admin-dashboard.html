@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Lerato Daycare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="admin.css">  
+</head>
+<body>
+  <!-- Mobile Menu Button -->
+  <button class="mobile-menu-btn" id="mobileMenuBtn">
+    <i class="fas fa-bars"></i>
+  </button>
+  
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">
+        <h2>Lerato Daycare</h2>
+      </div>
+      
+      <nav class="nav-menu">
+        <div class="nav-item active" data-section="dashboard">
+          <i class="fas fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </div>
+        <div class="nav-item" data-section="events">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Events</span>
+        </div>
+        <div class="nav-item" data-section="media">
+          <i class="fas fa-photo-video"></i>
+          <span>Media</span>
+        </div>
+        <div class="nav-item" data-section="messages">
+          <i class="fas fa-envelope"></i>
+          <span>Messages</span>
+        </div>
+        <div class="nav-item" data-section="subscribers">
+          <i class="fas fa-users"></i>
+          <span>Subscribers</span>
+        </div>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="header">
+        <h1>Admin Dashboard</h1>
+        <button class="logout-btn" id="logoutBtn">
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </button>
+      </div>
+      
+      <!-- Stats Cards -->
+      <div class="stats-container">
+        <div class="stat-card">
+          <h3>Total Subscribers</h3>
+          <div class="value" id="subscriberCount">0</div>
+          <div class="icon">
+            <i class="fas fa-users"></i>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <h3>Upcoming Events</h3>
+          <div class="value" id="eventCount">0</div>
+          <div class="icon">
+            <i class="fas fa-calendar"></i>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <h3>New Messages</h3>
+          <div class="value" id="messageCount">0</div>
+          <div class="icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Dashboard Overview -->
+      <div class="content-section active" id="dashboard-section">
+        <div class="section-header">
+          <h2>Recent Activity</h2>
+        </div>
+        <p>Welcome back! Here's what's happening today.</p>
+      </div>
+      
+      <!-- Events Section -->
+      <div class="content-section" id="events-section">
+        <div class="section-header">
+          <h2>Events Management</h2>
+          <button class="action-btn" id="addEventBtn">
+            <i class="fas fa-plus"></i>
+            Add Event
+          </button>
+        </div>
+        
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="eventsTable">
+              <tr>
+                <td colspan="3" style="text-align: center;">Loading events...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Media Section -->
+      <div class="content-section" id="media-section">
+        <div class="section-header">
+          <h2>Media Management</h2>
+          <button class="action-btn" id="addMediaBtn">
+            <i class="fas fa-plus"></i>
+            Add Media
+          </button>
+        </div>
+        
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Message</th>
+                <th>Posted</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="mediaTable">
+              <tr>
+                <td colspan="3" style="text-align: center;">Loading media...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Messages Section -->
+      <div class="content-section" id="messages-section">
+        <div class="section-header">
+          <h2>Contact Messages</h2> 
+
+          <button class="action-btn btn-delete-all" id="deleteAllMessagesBtn">
+    <i class="fas fa-trash"></i>
+    Delete All Messages
+  </button>
+        </div>
+        
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="messagesTable">
+              <tr>
+                <td colspan="4" style="text-align: center;">Loading messages...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Subscribers Section -->
+      <div class="content-section" id="subscribers-section">
+        <div class="section-header">
+          <h2>Subscribers</h2>
+        </div>
+        
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subscribed On</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="subscribersTable">
+              <tr>
+                <td colspan="4" style="text-align: center;">Loading subscribers...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Event Modal -->
+  <div id="eventModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2>Add New Event</h2>
+      <form id="eventForm">
+        <div class="form-group">
+          <label for="eventTitle">Title</label>
+          <input type="text" id="eventTitle" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="eventDescription">Description</label>
+          <textarea id="eventDescription" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="eventDate">Date</label>
+          <input type="date" id="eventDate" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="eventImage">Image</label>
+          <input type="file" id="eventImage" class="form-control">
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-cancel" id="cancelEventBtn">Cancel</button>
+          <button type="submit" class="btn action-btn">Add Event</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Media Modal -->
+  <div id="mediaModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeMediaModal">&times;</span>
+      <h2>Add New Media Message</h2>
+      <form id="mediaForm">
+        <div class="form-group">
+          <label for="mediaMessage">Message</label>
+          <textarea id="mediaMessage" class="form-control" required></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-cancel" id="cancelMediaBtn">Cancel</button>
+          <button type="submit" class="btn action-btn">Add Media</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin-dashboard.js"></script>
+</body>
+</html>
