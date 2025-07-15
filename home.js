@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize slideshow
   function startSlideShow() {
-    slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    slideInterval = setInterval(nextSlide, 4000); 
   }
   
   // Go to next slide
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
       };
       showLoader();
-      fetch("http://localhost:5000/subscribe", {
+      fetch("https://lerato-r5fw.onrender.com/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

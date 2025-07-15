@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Load Upcoming Event
       function loadUpcomingEvent() {
-        fetch("http://localhost:5000/events" , {
+       fetch("https://lerato-r5fw.onrender.com/events", {
           headers: { "Authorization": "Bearer " }
         })
         .then(response => response.json())
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const event = events[0];  // Assuming newest event first
             currentEventId = event.id;
             const imageSrc = getImageSrc(event.image_url);
-            let imageHtml = imageSrc ? `<img class="event-image" src="${imageSrc}" alt="${event.title}">` : `<p>No image available.</p>`; 
+            let imageHtml = imageSrc ? `<img class="event-image" src="${imageSrc}" alt="${event.title}">` : `<p>Loading   ......</p>`; 
             let titleHtml = `<p > ${event.title}</p> `;
             let detailsHtml = 
                                `<p> ${event.description}</p>
@@ -112,8 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       
       function loadParentMedia() {
-    // We use the parent endpoint that returns the latest media message
-    fetch("http://localhost:5000/media", {
+    
+    fetch("https://lerato-r5fw.onrender.com/media", {
       headers: { "Authorization": "Bearer " }
     })
       .then(response => response.json())
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
       };
       showLoader();
-      fetch("http://localhost:5000/subscribe", {
+       fetch("https://lerato-r5fw.onrender.com/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

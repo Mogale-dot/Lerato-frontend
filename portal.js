@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById("loginEmail").value;
         const password = document.getElementById("loginPassword").value;
         showLoader();
-        fetch("http://localhost:5000/parents/login", {
+        fetch("https://lerato-r5fw.onrender.com/parents/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password })

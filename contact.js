@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         message: document.getElementById("message").value,
       };
       showLoader();
-      fetch("http://localhost:5000/contact-us", {
+      fetch("https://lerato-r5fw.onrender.com/contact-us", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
       };
       showLoader();
-      fetch("http://localhost:5000/subscribe", {
+       fetch("https://lerato-r5fw.onrender.com/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
