@@ -86,7 +86,7 @@
           formData.append('eventImage', imageFile);
         }
         
-        fetch("http://localhost:5000/admin/events", {
+       fetch("https://lerato-r5fw.onrender.com/admin/events", {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -134,7 +134,7 @@
         
         const message = document.getElementById('mediaMessage').value;
         
-        fetch("http://localhost:5000/admin/media", {
+       fetch("https://lerato-r5fw.onrender.com/admin/media", {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -178,7 +178,7 @@
   function deleteAllMessages() {
     if (!confirm('WARNING: This will permanently delete ALL messages. Continue?')) return;
     
-    fetch("http://localhost:5000/admin/contact-messages-delete", {
+    fetch("https://lerato-r5fw.onrender.com/admin/contact-messages-delete", {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -211,7 +211,8 @@
       // Functions to load data
       function loadStats() {
         // Subscriber count
-        fetch("http://localhost:5000/admin/subscribers/count", {
+        fetch("https://lerato-r5fw.onrender.com/admin/subscribers/count", {
+
           headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -224,7 +225,7 @@
         });
         
         // Event count
-        fetch("http://localhost:5000/admin/events/count", {
+       fetch("https://lerato-r5fw.onrender.com/admin/events/count", {
           headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -237,7 +238,7 @@
         });
         
         // Message count
-        fetch("http://localhost:5000/admin/messages/count", {
+       fetch("https://lerato-r5fw.onrender.com/admin/messages/count", {
           headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -251,7 +252,7 @@
       }
       
       function loadSubscribers() {
-        fetch("http://localhost:5000/admin/subscribers", {
+        fetch("https://lerato-r5fw.onrender.com/admin/subscribers", {
           headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -288,7 +289,7 @@
       }
       
       function loadEvents() {
-        fetch("http://localhost:5000/admin/events", {
+      fetch("https://lerato-r5fw.onrender.com/admin/events", {
           headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -324,7 +325,7 @@
       }
       
       function loadMedia() {
-        fetch("http://localhost:5000/admin/media", {
+        fetch("https://lerato-r5fw.onrender.com/admin/media", {
           headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -360,7 +361,7 @@
       }
       
       function loadMessages() {
-        fetch("http://localhost:5000/admin/contact-messages", {
+    fetch("https://lerato-r5fw.onrender.com/admin/contact-messages", {
           headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -396,7 +397,7 @@
     function deleteSubscriber(id) {
       if (!confirm('Are you sure you want to delete this subscriber?')) return;
       
-      fetch(`http://localhost:5000/admin/subscribers/${id}`, {
+    fetch(`https://lerato-r5fw.onrender.com/admin/subscribers/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -416,7 +417,7 @@
     function deleteEvent(id) {
       if (!confirm('Are you sure you want to delete this event?')) return;
       
-      fetch(`http://localhost:5000/admin/events/${id}`, {
+     fetch(`https://lerato-r5fw.onrender.com/admin/events/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -436,7 +437,7 @@
     function deleteMedia(id) {
       if (!confirm('Are you sure you want to delete this media item?')) return;
       
-      fetch(`http://localhost:5000/admin/media/${id}`, {
+   fetch(`https://lerato-r5fw.onrender.com/admin/media/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
